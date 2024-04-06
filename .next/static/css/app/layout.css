@@ -614,11 +614,23 @@ video {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
+.mb-96 {
+  margin-bottom: 24rem;
+}
+.ml-24 {
+  margin-left: 6rem;
+}
+.ml-28 {
+  margin-left: 7rem;
+}
 .flex {
   display: flex;
 }
 .h-screen {
   height: 100vh;
+}
+.h-\[2000px\] {
+  height: 2000px;
 }
 .flex-col {
   flex-direction: column;
@@ -626,62 +638,40 @@ video {
 .items-center {
   align-items: center;
 }
-.gap-7 {
-  gap: 1.75rem;
+.justify-center {
+  justify-content: center;
 }
-.gap-4 {
-  gap: 1rem;
+.border {
+  border-width: 1px;
 }
-.gap-2 {
-  gap: 0.5rem;
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 .bg-stone-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(28 25 23 / var(--tw-bg-opacity));
 }
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+.bg-slate-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.pb-96 {
+  padding-bottom: 24rem;
 }
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
-}
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.text-center {
+  text-align: center;
 }
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
 }
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
+}
 .font-bold {
   font-weight: 700;
-}
-.font-light {
-  font-weight: 300;
-}
-.font-medium {
-  font-weight: 500;
-}
-.font-normal {
-  font-weight: 400;
 }
 .font-semibold {
   font-weight: 600;
