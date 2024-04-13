@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 type Props = {};
 
 const Hero = (props: Props) => {
+  const [pinSectionTwo, setPinSectionTwo] = useState(false);
   const animationParent = useRef<HTMLDivElement>(null);
   const endTrigger = useRef<HTMLDivElement>(null);
 
@@ -68,8 +69,7 @@ const Hero = (props: Props) => {
             start: "top top",
             scrub: 1,
             endTrigger: endTrigger.current,
-            end: "top 20%",
-            markers: true,
+            end: "top 200",
           },
         });
       });
@@ -94,7 +94,7 @@ const Hero = (props: Props) => {
             start: "top top",
             scrub: 1,
             endTrigger: endTrigger.current,
-            end: "top 20%",
+            end: "top 200",
           },
         });
       });
@@ -144,7 +144,7 @@ const Hero = (props: Props) => {
             // markers: true,
             scrub: 1,
             endTrigger: endTrigger.current,
-            end: "top 20%",
+            end: "top 200",
           },
         });
       });
@@ -158,25 +158,60 @@ const Hero = (props: Props) => {
           start: "top top",
           scrub: 1,
           endTrigger: endTrigger.current,
-          end: "top 20%",
-          markers: true,
+          end: "top 200",
         },
       });
+
       ScrollTrigger.create({
         trigger: animationParent.current,
         start: "top top",
         pin: true,
-        markers: true,
-        scrub: 1,
-        endTrigger: endTrigger.current,
-        end: "top 20%",
+        onLeave: () => {
+          setPinSectionTwo(true);
+        },
+        onEnterBack: () => {
+          setPinSectionTwo(false);
+        },
+        end: "+=300",
       });
     },
 
     { dependencies: [], scope: animationParent }
   );
 
-  useGSAP(() => {});
+  useGSAP(
+    () => {
+      gsap.to(".imgContainer", {
+        scrollTrigger: {
+          trigger: ".trigger",
+          start: "top+=50% top",
+          markers: {
+            startColor: "white",
+            endColor: "white",
+            fontSize: "18px",
+            fontWeight: "bold",
+            indent: 20,
+          },
+          toggleActions: "play none none reverse",
+          end: "+=0",
+        },
+        xPercent: 100,
+        ease: "power1.inOut",
+      });
+      gsap.to(".imgContainer", {
+        scrollTrigger: {
+          trigger: ".trigger2",
+          start: "top+=50% top",
+          immediateRender: false,
+          markers: true,
+          toggleActions: "play none none reverse",
+        },
+        xPercent: 0,
+        ease: "power1.inOut",
+      });
+    },
+    { dependencies: [] }
+  );
   return (
     <div className='bg-stone-900 '>
       <div
@@ -197,8 +232,19 @@ const Hero = (props: Props) => {
             Creative Developer
           </h4>
         </div>
-        <div className=' top-0 left-0 bg-red-300 w-full h-[4000px] sectionTwo scale-[.25] -translate-y-1/3 opacity-0 flex flex-wrap'>
-          <div className='w-1/2 bg-red-500 h-1/2'></div>
+        <div className='w-full h-full'>
+          <div className='trigger absolute top-0 left-0 translate-y-[300px] w-full z-30 h-screen border border-white'></div>
+          <div className='trigger2 absolute top-[100vh] left-0 translate-y-[300px] w-full z-30 h-screen border border-blue-300'></div>
+          <div className=' top-0 left-0 w-full sectionTwo scale-[.25] -translate-y-1/3 opacity-0 flex flex-wrap'>
+            <div className='w-1/2 h-screen imgContainer sticky -top-[300px]'>
+              <div className=' bg-red-500 h-full w-full'></div>
+            </div>
+            <div className='w-1/2 bg-blue-500 h-screen'></div>
+            <div className='w-1/2 bg-green-500 h-screen'></div>
+            <div className='w-1/2 bg-green-500 h-screen'></div>
+            <div className='w-1/2 bg-yellow-500 h-screen'></div>
+            <div className='w-1/2 bg-yellow-500 h-screen'></div>
+          </div>
         </div>
       </div>
     </div>
