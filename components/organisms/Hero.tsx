@@ -181,33 +181,33 @@ const Hero = (props: Props) => {
 
   useGSAP(
     () => {
-      gsap.to(".imgContainer", {
-        scrollTrigger: {
-          trigger: ".trigger",
-          start: "top+=50% top",
-          markers: {
-            startColor: "white",
-            endColor: "white",
-            fontSize: "18px",
-            fontWeight: "bold",
-            indent: 20,
+      const fadeText: gsap.DOMTarget = gsap.utils.toArray(".fadeText");
+      gsap.utils.toArray(".trigger").forEach((trigger, index) => {
+        gsap.to(".imgContainer", {
+          scrollTrigger: {
+            trigger: trigger as gsap.DOMTarget,
+            start: "top+=50% top",
+            immediateRender: index === 0 ?? false,
+            toggleActions: "play none none reverse",
+            markers: true,
+            // snap: 1,
+            onEnter: () => {
+              gsap.to(fadeText[index], {
+                autoAlpha: 1,
+                delay: 0.5,
+              });
+            },
+            onLeaveBack: () => {
+              gsap.to(fadeText[index], {
+                autoAlpha: 0,
+                // delay: 0.5,
+              });
+            },
           },
-          toggleActions: "play none none reverse",
-          end: "+=0",
-        },
-        xPercent: 100,
-        ease: "power1.inOut",
-      });
-      gsap.to(".imgContainer", {
-        scrollTrigger: {
-          trigger: ".trigger2",
-          start: "top+=50% top",
-          immediateRender: false,
-          markers: true,
-          toggleActions: "play none none reverse",
-        },
-        xPercent: 0,
-        ease: "power1.inOut",
+          xPercent: index % 2 === 0 ? 100 : 0,
+          ease: "power1.inOut",
+          duration: 0.75,
+        });
       });
     },
     { dependencies: [] }
@@ -216,7 +216,7 @@ const Hero = (props: Props) => {
     <div className='bg-stone-900 '>
       <div
         ref={animationParent}
-        className='flex flex-col justify-center items-center    container min-h-screen  '
+        className='flex flex-col justify-center items-center    container'
       >
         <div className='absolute w-full h-screen top-0 left-0 flex items-center justify-center flex-col'>
           <h4 className='intro-text ml-10 text-center text-5xl mb-4 font-semibold text-stone-100'>
@@ -233,17 +233,63 @@ const Hero = (props: Props) => {
           </h4>
         </div>
         <div className='w-full h-full'>
-          <div className='trigger absolute top-0 left-0 translate-y-[300px] w-full z-30 h-screen border border-white'></div>
-          <div className='trigger2 absolute top-[100vh] left-0 translate-y-[300px] w-full z-30 h-screen border border-blue-300'></div>
+          <div className='trigger absolute top-0 left-0 translate-y-[300px] w-full pointer-events-none h-screen '></div>
+          <div className='trigger absolute top-[100vh] left-0 translate-y-[300px] w-full pointer-events-none h-screen'></div>
+          <div className='trigger absolute top-[200vh] left-0 translate-y-[300px] w-full pointer-events-none h-screen'></div>
+
           <div className=' top-0 left-0 w-full sectionTwo scale-[.25] -translate-y-1/3 opacity-0 flex flex-wrap'>
             <div className='w-1/2 h-screen imgContainer sticky -top-[300px]'>
-              <div className=' bg-red-500 h-full w-full'></div>
+              <div className=' h-full w-full px-8 flex items-center'>
+                <div className='bg-red-500 h-1/2 w-full'></div>
+              </div>
+            </div>
+            <div className='w-1/2 h-screen flex items-center justify-center  border border-red-200'>
+              <div className='h-fit flex flex-col gap-4'>
+                <h2>Roots and Early Inspirations</h2>
+                <p>
+                  I'm a true New Brunswick native and the spirited youngest of
+                  five siblings. My early years were a whirlwind of sports—lace
+                  up skates for hockey, cleats for soccer, and spikes for track
+                  and field, no season passed without a game or match.
+                </p>
+                <p>
+                  Looking up to Joe Sakic as more than just a sports star, he
+                  was my role model, teaching me about resilience and
+                  leadership, lessons I carry with me every day.
+                </p>
+              </div>
+            </div>
+            <div className='w-1/2 h-screen flex items-center justify-center  border border-red-200'>
+              <div className='h-fit flex flex-col gap-4 fadeText opacity-0'>
+                <h2>From Gridiron Dreams to Reality Checks</h2>
+                <p>
+                  My passion for football hit its stride in high school, which
+                  led me all the way to Calgary in 2012 to play at the
+                  University of Calgary. However, the path wasn't easy; I
+                  endured multiple knee injuries requiring six surgeries,
+                  ultimately sidelining my dreams of playing professional
+                  football.
+                </p>
+              </div>
+            </div>
+            <div className='w-1/2 h-screen'></div>
+            <div className='w-1/2  h-screen'></div>
+            <div className='w-1/2 h-screen flex items-center justify-center  border border-red-200'>
+              <div className='h-fit flex flex-col gap-4 fadeText opacity-0 '>
+                <h2>Turning Points</h2>
+                <p>
+                  Initially, I studied Kinesiology at the University of Calgary.
+                  My game-changer was a course titled 'Computers in
+                  Kinesiology'—it wasn't just my only A+; it completely shifted
+                  my perspective. Inspired by the intersection of tech and
+                  sports, I decided to pivot my career towards technology,
+                  aiming to create websites and games that celebrate the sports
+                  world.
+                </p>
+              </div>
             </div>
             <div className='w-1/2 bg-blue-500 h-screen'></div>
-            <div className='w-1/2 bg-green-500 h-screen'></div>
-            <div className='w-1/2 bg-green-500 h-screen'></div>
-            <div className='w-1/2 bg-yellow-500 h-screen'></div>
-            <div className='w-1/2 bg-yellow-500 h-screen'></div>
+            <div className='w-1/2 bg-blue-500 h-screen'></div>
           </div>
         </div>
       </div>
