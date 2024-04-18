@@ -141,7 +141,6 @@ const Hero = (props: Props) => {
           scrollTrigger: {
             trigger: animationParent.current,
             start: "top top",
-            // markers: true,
             scrub: 1,
             endTrigger: endTrigger.current,
             end: "top 200",
@@ -189,8 +188,6 @@ const Hero = (props: Props) => {
             start: "top+=50% top",
             immediateRender: index === 0 ?? false,
             toggleActions: "play none none reverse",
-            markers: true,
-            // snap: 1,
             onEnter: () => {
               gsap.to(fadeText[index], {
                 autoAlpha: 1,
@@ -200,9 +197,18 @@ const Hero = (props: Props) => {
             onLeaveBack: () => {
               gsap.to(fadeText[index], {
                 autoAlpha: 0,
-                // delay: 0.5,
               });
             },
+            // onLeave: () => {
+            //   gsap.to(fadeText[index - 1], {
+            //     autoAlpha: 0,
+            //   });
+            // },
+            // onEnterBack: () => {
+            //   gsap.to(fadeText[index], {
+            //     autoAlpha: 1,
+            //   });
+            // },
           },
           xPercent: index % 2 === 0 ? 100 : 0,
           ease: "power1.inOut",
@@ -243,7 +249,7 @@ const Hero = (props: Props) => {
                 <div className='bg-red-500 h-1/2 w-full'></div>
               </div>
             </div>
-            <div className='w-1/2 h-screen flex items-center justify-center  border border-red-200'>
+            <div className='w-1/2 h-screen flex items-center justify-center  px-8 '>
               <div className='h-fit flex flex-col gap-4'>
                 <h2>Roots and Early Inspirations</h2>
                 <p>
@@ -259,7 +265,7 @@ const Hero = (props: Props) => {
                 </p>
               </div>
             </div>
-            <div className='w-1/2 h-screen flex items-center justify-center  border border-red-200'>
+            <div className='w-1/2 h-screen flex items-center justify-center  px-8 '>
               <div className='h-fit flex flex-col gap-4 fadeText opacity-0'>
                 <h2>From Gridiron Dreams to Reality Checks</h2>
                 <p>
@@ -274,7 +280,7 @@ const Hero = (props: Props) => {
             </div>
             <div className='w-1/2 h-screen'></div>
             <div className='w-1/2  h-screen'></div>
-            <div className='w-1/2 h-screen flex items-center justify-center  border border-red-200'>
+            <div className='w-1/2 h-screen flex items-center justify-center  px-8 '>
               <div className='h-fit flex flex-col gap-4 fadeText opacity-0 '>
                 <h2>Turning Points</h2>
                 <p>
@@ -288,8 +294,20 @@ const Hero = (props: Props) => {
                 </p>
               </div>
             </div>
-            <div className='w-1/2 bg-blue-500 h-screen'></div>
-            <div className='w-1/2 bg-blue-500 h-screen'></div>
+            <div className='w-1/2 h-screen flex items-center justify-center px-8'>
+              <div className='h-fit flex flex-col gap-4 fadeText opacity-0 '>
+                <h2>Life Beyond Code</h2>
+                <p>
+                  Career paths change, but my love for sports never wavers—I'm
+                  always ready to cheer on my favorite teams! When I'm not
+                  catching a game, you can find me outdoors, whether I'm running
+                  forest trails, cycling up hills, golfing with buddies, or
+                  crafting unique pieces in my woodworking shop. Each activity
+                  fuels my zest for life, blending adventure with creativity.
+                </p>
+              </div>
+            </div>
+            <div className='w-1/2 h-screen'></div>
           </div>
         </div>
       </div>
