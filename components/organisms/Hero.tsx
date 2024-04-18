@@ -333,6 +333,66 @@ const Hero = (props: Props) => {
                     className='col-span-2 row-span-2 col-start-3 row-start-3'
                   />
                 </div>
+                <div className='fadeImages absolute opacity-0 w-[calc(100%-4rem)] grid grid-cols-6 grid-rows-5 gap-4'>
+                  <Image
+                    alt='Football on grass field'
+                    src='/images/aspen.jpeg'
+                    width={1250}
+                    height={1250}
+                    className='col-span-3 row-span-3'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/hike.jpeg'
+                    width={800}
+                    height={800}
+                    className='col-span-3 row-span-2 col-start-2 row-start-4'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/maple-2.jpeg'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-2 col-start-5 row-start-4'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/brazil.jpeg'
+                    width={800}
+                    height={800}
+                    className='col-span-3 row-span-3 col-start-4 row-start-1'
+                  />
+                </div>
+                <div className='fadeImages absolute opacity-0 w-[calc(100%-4rem)] grid grid-cols-6 grid-rows-7 gap-4'>
+                  <Image
+                    alt='Football on grass field'
+                    src='/images/jackson.jpg'
+                    width={1250}
+                    height={1250}
+                    className='col-span-4 row-span-4'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/house.jpg'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-3 col-start-5 row-start-2'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/kids.jpg'
+                    width={800}
+                    height={800}
+                    className='col-span-3 row-span-3 row-start-5'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/copacabana.jpg'
+                    width={800}
+                    height={800}
+                    className='col-span-3 row-span-3 col-start-4 row-start-5'
+                  />
+                </div>
               </div>
             </div>
             <div className='w-1/2 h-screen flex items-center justify-center  px-8 '>
