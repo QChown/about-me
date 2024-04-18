@@ -635,6 +635,36 @@ video {
 .top-\[200vh\] {
   top: 200vh;
 }
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
+.col-start-1 {
+  grid-column-start: 1;
+}
+.col-start-3 {
+  grid-column-start: 3;
+}
+.col-start-5 {
+  grid-column-start: 5;
+}
+.row-span-2 {
+  grid-row: span 2 / span 2;
+}
+.row-span-3 {
+  grid-row: span 3 / span 3;
+}
+.row-start-1 {
+  grid-row-start: 1;
+}
+.row-start-3 {
+  grid-row-start: 3;
+}
+.row-start-4 {
+  grid-row-start: 4;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -650,8 +680,8 @@ video {
 .flex {
   display: flex;
 }
-.h-1\/2 {
-  height: 50%;
+.grid {
+  display: grid;
 }
 .h-\[2000px\] {
   height: 2000px;
@@ -685,6 +715,12 @@ video {
   --tw-scale-y: .25;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.grid-rows-5 {
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
 .flex-col {
   flex-direction: column;
 }
@@ -700,12 +736,8 @@ video {
 .gap-4 {
   gap: 1rem;
 }
-.border {
-  border-width: 1px;
-}
-.border-red-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(254 202 202 / var(--tw-border-opacity));
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 .bg-blue-500 {
   --tw-bg-opacity: 1;
@@ -718,6 +750,24 @@ video {
 .bg-stone-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(28 25 23 / var(--tw-bg-opacity));
+}
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+.bg-sky-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(186 230 253 / var(--tw-bg-opacity));
+}
+.object-left {
+  -o-object-position: left;
+     object-position: left;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
 }
 .px-8 {
   padding-left: 2rem;
@@ -751,6 +801,9 @@ video {
 .opacity-0 {
   opacity: 0;
 }
+.opacity-100 {
+  opacity: 1;
+}
 
 * {
   --tw-text-opacity: 1;
@@ -775,5 +828,15 @@ h2 {
 p {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 0.5rem;
 }
 

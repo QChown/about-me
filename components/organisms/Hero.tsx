@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 type Props = {};
@@ -181,6 +182,7 @@ const Hero = (props: Props) => {
   useGSAP(
     () => {
       const fadeText: gsap.DOMTarget = gsap.utils.toArray(".fadeText");
+      const fadeImages: gsap.DOMTarget = gsap.utils.toArray(".fadeImages");
       gsap.utils.toArray(".trigger").forEach((trigger, index) => {
         gsap.to(".imgContainer", {
           scrollTrigger: {
@@ -219,10 +221,10 @@ const Hero = (props: Props) => {
     { dependencies: [] }
   );
   return (
-    <div className='bg-stone-900 '>
+    <div className='bg-stone-900'>
       <div
         ref={animationParent}
-        className='flex flex-col justify-center items-center    container'
+        className='flex flex-col justify-center items-center container'
       >
         <div className='absolute w-full h-screen top-0 left-0 flex items-center justify-center flex-col'>
           <h4 className='intro-text ml-10 text-center text-5xl mb-4 font-semibold text-stone-100'>
@@ -239,14 +241,87 @@ const Hero = (props: Props) => {
           </h4>
         </div>
         <div className='w-full h-full'>
-          <div className='trigger absolute top-0 left-0 translate-y-[300px] w-full pointer-events-none h-screen '></div>
+          <div className='trigger absolute top-0 left-0 translate-y-[300px] w-full pointer-events-none h-screen'></div>
           <div className='trigger absolute top-[100vh] left-0 translate-y-[300px] w-full pointer-events-none h-screen'></div>
           <div className='trigger absolute top-[200vh] left-0 translate-y-[300px] w-full pointer-events-none h-screen'></div>
 
-          <div className=' top-0 left-0 w-full sectionTwo scale-[.25] -translate-y-1/3 opacity-0 flex flex-wrap'>
+          <div className='top-0 left-0 w-full sectionTwo scale-[.25] -translate-y-1/3 opacity-0 flex flex-wrap'>
             <div className='w-1/2 h-screen imgContainer sticky -top-[300px]'>
-              <div className=' h-full w-full px-8 flex items-center'>
-                <div className='bg-red-500 h-1/2 w-full'></div>
+              <div className='h-full w-full px-8 flex items-center'>
+                {/* <div className='fadeImages w-full grid grid-cols-6 grid-rows-5 gap-4'>
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/nb-landscape.jpeg'
+                    width={1250}
+                    height={1250}
+                    className='col-span-4 row-span-2 col-start-3 row-start-4'
+                  />
+                  <Image
+                    alt='Flag of New Brunswick Canada'
+                    src='/images/nb-flag.webp'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-2'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/super-joe.jpeg'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-3 col-start-5 row-start-1'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/young-q.jpg'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-3 col-start-1 row-start-3'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/young-q2.jpg'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-3 col-start-3 object-left'
+                  />
+                </div> */}
+                <div className='fadeImages opacity-100 w-full grid grid-cols-6 grid-rows-5 gap-4'>
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/nb-landscape.jpeg'
+                    width={1250}
+                    height={1250}
+                    className='col-span-4 row-span-2 col-start-3 row-start-4'
+                  />
+                  <Image
+                    alt='Flag of New Brunswick Canada'
+                    src='/images/nb-flag.webp'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-2'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/super-joe.jpeg'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-3 col-start-5 row-start-1'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/young-q.jpg'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-3 col-start-1 row-start-3'
+                  />
+                  <Image
+                    alt='Landscape of New Brunswick Canada'
+                    src='/images/young-q2.jpg'
+                    width={800}
+                    height={800}
+                    className='col-span-2 row-span-3 col-start-3 object-left'
+                  />
+                </div>
               </div>
             </div>
             <div className='w-1/2 h-screen flex items-center justify-center  px-8 '>
@@ -255,8 +330,8 @@ const Hero = (props: Props) => {
                 <p>
                   I'm a true New Brunswick native and the spirited youngest of
                   five siblings. My early years were a whirlwind of sports—lace
-                  up skates for hockey, cleats for soccer, and spikes for track
-                  and field, no season passed without a game or match.
+                  up skates for hockey, cleats for football, and spikes for
+                  track and field, no season passed without a game or match.
                 </p>
                 <p>
                   Looking up to Joe Sakic as more than just a sports star, he
