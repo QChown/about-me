@@ -191,14 +191,32 @@ const Hero = (props: Props) => {
             immediateRender: index === 0 ?? false,
             toggleActions: "play none none reverse",
             onEnter: () => {
+              console.log(index);
+              console.log(fadeImages[index]);
               gsap.to(fadeText[index], {
                 autoAlpha: 1,
                 delay: 0.5,
+              });
+              gsap.to(fadeImages[index + 1], {
+                autoAlpha: 1,
+                duration: 1.27,
+              });
+              gsap.to(fadeImages[index], {
+                autoAlpha: 0,
+                duration: 1.27,
               });
             },
             onLeaveBack: () => {
               gsap.to(fadeText[index], {
                 autoAlpha: 0,
+              });
+              gsap.to(fadeImages[index + 1], {
+                autoAlpha: 0,
+                duration: 1.27,
+              });
+              gsap.to(fadeImages[index], {
+                autoAlpha: 1,
+                duration: 1.27,
               });
             },
             // onLeave: () => {
@@ -247,8 +265,8 @@ const Hero = (props: Props) => {
 
           <div className='top-0 left-0 w-full sectionTwo scale-[.25] -translate-y-1/3 opacity-0 flex flex-wrap'>
             <div className='w-1/2 h-screen imgContainer sticky -top-[300px]'>
-              <div className='h-full w-full px-8 flex items-center'>
-                {/* <div className='fadeImages w-full grid grid-cols-6 grid-rows-5 gap-4'>
+              <div className='h-full w-full px-8 flex items-center relative'>
+                <div className='fadeImages woo absolute w-[calc(100%-4rem)] grid grid-cols-6 grid-rows-5 gap-4'>
                   <Image
                     alt='Landscape of New Brunswick Canada'
                     src='/images/nb-landscape.jpeg'
@@ -284,42 +302,35 @@ const Hero = (props: Props) => {
                     height={800}
                     className='col-span-2 row-span-3 col-start-3 object-left'
                   />
-                </div> */}
-                <div className='fadeImages opacity-100 w-full grid grid-cols-6 grid-rows-5 gap-4'>
+                </div>
+                <div className='fadeImages absolute opacity-0 w-[calc(100%-4rem)] grid grid-cols-6 grid-rows-5 gap-4'>
                   <Image
-                    alt='Landscape of New Brunswick Canada'
-                    src='/images/nb-landscape.jpeg'
+                    alt='Football on grass field'
+                    src='/images/football-1.jpeg'
                     width={1250}
                     height={1250}
-                    className='col-span-4 row-span-2 col-start-3 row-start-4'
-                  />
-                  <Image
-                    alt='Flag of New Brunswick Canada'
-                    src='/images/nb-flag.webp'
-                    width={800}
-                    height={800}
-                    className='col-span-2 row-span-2'
+                    className='col-span-4 row-span-2'
                   />
                   <Image
                     alt='Landscape of New Brunswick Canada'
-                    src='/images/super-joe.jpeg'
+                    src='/images/vesper.JPG'
                     width={800}
                     height={800}
-                    className='col-span-2 row-span-3 col-start-5 row-start-1'
+                    className='col-span-2 row-span-5 col-start-5 object-[70%]'
                   />
                   <Image
                     alt='Landscape of New Brunswick Canada'
-                    src='/images/young-q.jpg'
+                    src='/images/surgery.JPG'
                     width={800}
                     height={800}
-                    className='col-span-2 row-span-3 col-start-1 row-start-3'
+                    className='col-span-2 row-span-3 row-start-3'
                   />
                   <Image
                     alt='Landscape of New Brunswick Canada'
-                    src='/images/young-q2.jpg'
+                    src='/images/football-2.JPG'
                     width={800}
                     height={800}
-                    className='col-span-2 row-span-3 col-start-3 object-left'
+                    className='col-span-2 row-span-2 col-start-3 row-start-3'
                   />
                 </div>
               </div>
